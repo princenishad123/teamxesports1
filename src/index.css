@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+.navbarStyle{
+    background: linear-gradient(to top, rgb(188, 6, 6),rgb(203, 0, 0));
+    color: white;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.203);
+}
+.winninhsAndLeaderboard::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+}
+
+

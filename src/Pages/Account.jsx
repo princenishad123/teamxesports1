@@ -16,6 +16,8 @@ const Account = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
     dispatch(logout());
+    localStorage.clear();
+    sessionStorage.clear();
     navigate("/login");
   };
 

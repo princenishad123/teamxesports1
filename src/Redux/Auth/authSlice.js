@@ -11,11 +11,7 @@ export const authSlice = createSlice({
         token: JSON.parse(localStorage.getItem("token")),
         userData: {},
         contest:[],
-         
-        
-        
-        
-        
+
         
     },
     reducers: {

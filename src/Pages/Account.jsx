@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Qonquere from "../assets/qonquere.png";
-import Userimage from "../assets/userImage.png";
+import Qonquere from "../assets/qonquere.webp";
+import Userimage from "../assets/userImage.webp";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../Redux/Auth/authSlice";
 import { useNavigate } from "react-router-dom";
 import { useGetUserAccountQuery } from "../Redux/querySlice";
 import { addMoney } from "../Redux/Auth/paymentSlice";
 import Loader from "../Component/Loader";
+import axios from "axios";
 const Account = () => {
   const { data, isLoading } = useGetUserAccountQuery();
 

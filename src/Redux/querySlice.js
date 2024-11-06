@@ -5,7 +5,7 @@ export const api = createApi({
         baseUrl: import.meta.env.VITE_BASE_API_URL,
             prepareHeaders: (headers, { getState }) => {
       // Get the token from the state or storage
-      const token = getState().auth.token || localStorage.getItem('token');
+      const token = getState().auth.token || JSON.parse(localStorage.getItem('token'));
       
       // If a token is available, set the Authorization header
       if (token) {
@@ -21,7 +21,7 @@ export const api = createApi({
 
         // get user data
         getUserAccount: builder.query({
-            query: () => "/user/account"
+            query: () => `/user/account/${JSON.parse(sessionStorage.getItem('id'))}`
         }),
 
         getAllUsers: builder.query({

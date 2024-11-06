@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 const DetailsOfRegisteredUser = ({
-  image = "https://img.utdstc.com/icon/a3a/b16/a3ab16c48b142e28b6a2f7eb40b087c5e631bc84e3ac66b11533c727ca9c3211:200",
+  image = "https://i.postimg.cc/PxdqnWyG/bf67ca742c1a648df202ab9c1e2a2128-icon.webp",
   name = " BGMI E-sports",
   id,
   date,

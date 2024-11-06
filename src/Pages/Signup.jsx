@@ -2,23 +2,29 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
+import ButtonSpinner from "../Component/ButtonSpinner";
 const Signup = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleForm = (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     const formData = new FormData(e.target);
     const user = Object.fromEntries(formData.entries());
     setUserData(user);
     axios
       .post("/user/sign-up", { ...user })
       .then((res) => {
+        setIsLoading(false);
+
         toast.success(res.data.message);
         navigate("/login");
       })
       .catch((err) => {
+        setIsLoading(false);
+
         toast.error(err.response.data.message);
       });
   };
@@ -80,7 +86,7 @@ const Signup = () => {
               // onClick={() => setShowVerifyPage(true)}
               className="w-full bg-red-700 text-white p-3 rounded-lg font-semibold hover:bg-red-600"
             >
-              Sign up
+              {isLoading ? <ButtonSpinner /> : "Sign up"}
             </button>
           </form>
 

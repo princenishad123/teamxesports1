@@ -4,22 +4,28 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../Redux/Auth/authSlice";
+import ButtonSpinner from "../Component/ButtonSpinner";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const handleForm = (e) => {
     e.preventDefault();
+    setIsLoading(true);
+
     const formData = new FormData(e.target);
     const user = Object.fromEntries(formData.entries());
 
     axios
       .post("/user/login", { ...user })
       .then((res) => {
+        setIsLoading(false);
+
         toast.success(res.data.message);
         if (res.data.token) {
           localStorage.setItem("token", JSON.stringify(res.data.token));
+          sessionStorage.setItem("id", JSON.stringify(res.data.userId));
           dispatch(login());
           navigate("/");
         }
@@ -27,6 +33,7 @@ const Login = () => {
         // localStorage.setItem()
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       });
   };
@@ -73,7 +80,7 @@ const Login = () => {
 
             {/* Sign Up Button */}
             <button className="w-full bg-red-700 text-white p-3 rounded-lg font-semibold hover:bg-red-600">
-              Login
+              {isLoading ? <ButtonSpinner /> : "Login"}
             </button>
           </form>
 

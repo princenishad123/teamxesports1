@@ -21,7 +21,7 @@ export const api = createApi({
 
         // get user data
         getUserAccount: builder.query({
-            query: () => `/user/account/${JSON.parse(sessionStorage.getItem('id'))}`
+            query: () => `/user/account/${JSON.parse(localStorage.getItem('id'))}`
         }),
 
         getAllUsers: builder.query({

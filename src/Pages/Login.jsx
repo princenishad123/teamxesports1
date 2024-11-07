@@ -25,7 +25,7 @@ const Login = () => {
         toast.success(res.data.message);
         if (res.data.token) {
           localStorage.setItem("token", JSON.stringify(res.data.token));
-          sessionStorage.setItem("id", JSON.stringify(res.data.userId));
+          localStorage.setItem("id", JSON.stringify(res.data.userId));
           dispatch(login());
           navigate("/");
         }

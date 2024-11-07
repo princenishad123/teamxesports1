@@ -14,6 +14,7 @@ const MatchCard = ({
   bookedSeat,
   fee,
   round,
+  background,
 }) => {
   const [percentage, setPercentage] = useState(
     Math.round((bookedSeat / seat) * 100)

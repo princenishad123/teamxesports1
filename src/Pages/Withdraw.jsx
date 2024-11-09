@@ -23,10 +23,10 @@ const Withdraw = () => {
         upi,
       })
       .then((res) => {
-        toast.success("withdraw success");
+        toast.success(res.data.message);
         console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err.message));
   };
   return (
     <div className="w-full p-4">

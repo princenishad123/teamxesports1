@@ -32,10 +32,11 @@ const Account = () => {
           <div className="w-full h-auto relative flex items-center py-2 gap-4 px-4">
             <div className="w-20 h-20 relative flex items-center justify-cente overflow-hidden">
               <div className="r">
-                <img src={Userimage} alt="" className="w-[80%]  z-0 ml-2" />
-              </div>
-              <div className="absolute top-0 left-0">
-                <img src={Qonquere} alt="" className=" w-full z-10" />
+                <img
+                  src={Userimage}
+                  alt=""
+                  className="w-[80%]  z-0 ml-2 drop-shadow-lg"
+                />
               </div>
             </div>
             <div>
@@ -80,6 +81,20 @@ const Account = () => {
                 className="w-1/2 h-auto p-3 rounded-md shadow-md bg-green-600 text-white"
               >
                 <h2 className="text-md font-medium">Withdraw</h2>
+              </button>
+            </div>
+            <div className="w-full flex my-2 justify-center gap-4">
+              <button
+                onClick={() => navigate("/transactions/withdraw")}
+                className="w-1/2 h-auto p-3 rounded-md shadow-md bg-black text-white"
+              >
+                <h2 className="text-md font-medium">Withdraw History</h2>
+              </button>
+              <button
+                onClick={() => navigate("/transactions/deposites")}
+                className="w-1/2 h-auto p-3 rounded-md shadow-md bg-purple-600 text-white"
+              >
+                <h2 className="text-md font-medium">Deposit History</h2>
               </button>
             </div>
           </div>

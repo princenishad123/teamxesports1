@@ -21,10 +21,15 @@ const DetailsOfRegisteredUser = ({
   );
 
   const navigate = useNavigate();
+  const [markButton, setMarkButton] = useState(false);
 
   useEffect(() => {
     if (!seat) setPercentage(0);
   }, []);
+
+  const updateTournaments = () => {
+    setMarkButton(!markButton);
+  };
 
   return (
     <div className="w-full h-auto border rounded-xl overflow-hidden my-4 shadow-sm border-slate-200 ">
@@ -91,11 +96,34 @@ const DetailsOfRegisteredUser = ({
         <h3 className="font-semibold text-slate-500">
           Room Id : {roomId} | Room Password : {roomPassword}
         </h3>
-        <NavLink to={`/admin-account/tournament/${id}`}>
-          <button className="py-1 font-medium px-8 text-sm rounded-md text-white bg-green-700">
-            View Details
-          </button>
-        </NavLink>
+        <div className="flex items-center gap-3 flex-row-reverse">
+          <NavLink to={`/admin-account/tournament/${id}`}>
+            <button className="py-1 font-medium px-8 text-sm rounded-md text-white bg-green-700">
+              View Details
+            </button>
+          </NavLink>
+          <div className="flex items-center gap-3">
+            <span className="text-sm">Mark as a Complete</span>
+            <div
+              className={`w-10 h-5 cursor-pointer  rounded-full bg-gray-300 flex items-center  ${
+                markButton ? "justify-end" : "justify-start"
+              } p-1 transition-all`}
+              onClick={updateTournaments}
+            >
+              <div className="w-4 h-4 rounded-full bg-blue-700"></div>
+            </div>
+
+            <button className="px-4 py-1 bg-black text-sm text-white rounded-full">
+              Edit
+            </button>
+            <button className="px-4 py-1 bg-orange-500 text-sm text-white rounded-full">
+              Clone
+            </button>
+            <button className="px-4 py-1 bg-red-500 text-sm text-white rounded-full">
+              Delete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

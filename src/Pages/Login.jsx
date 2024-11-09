@@ -5,10 +5,13 @@ import toast from "react-hot-toast";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../Redux/Auth/authSlice";
 import ButtonSpinner from "../Component/ButtonSpinner";
+import { LuEye } from "react-icons/lu";
+import { LuEyeOff } from "react-icons/lu";
 
 const Login = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const handleForm = (e) => {
     e.preventDefault();
@@ -61,22 +64,28 @@ const Login = () => {
             />
 
             {/* Password Input */}
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter Password"
-              className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
-            />
-
-            {/* Checkbox */}
-            <div className="flex items-center mb-4">
-              <label htmlFor="agree" className="text-sm">
-                Forget Password ?{" "}
-                <a href="#" className="text-indigo-500 underline">
-                  Reset Now
-                </a>
-              </label>
+            <div className="border mb-4 border-gray-300 rounded-lg overflow-hidden flex justify-between items-center">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Enter Password"
+                className="w-full p-3  focus:outline-none"
+              />
+              <span
+                className=" w-8 h-8 mr-2 grid place-content-center text-gray-500 text-xl"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <LuEye /> : <LuEyeOff />}
+              </span>
             </div>
+            <p className=" my-3 text-sm">
+              <NavLink
+                to={"/forget-password"}
+                className="text-indigo-500 underline"
+              >
+                Forget Password ?
+              </NavLink>
+            </p>
 
             {/* Sign Up Button */}
             <button className="w-full bg-red-700 text-white p-3 rounded-lg font-semibold hover:bg-red-600">
@@ -85,30 +94,9 @@ const Login = () => {
           </form>
 
           {/* Social Media Sign Up */}
-          <div className="flex justify-between items-center my-6">
-            <div className="border-t w-1/4"></div>
-            <p className="text-gray-500 text-sm">Login with</p>
-            <div className="border-t w-1/4"></div>
-          </div>
-
-          <div className="flex justify-around mb-4">
-            {/* Social Media Icons (replace with actual SVGs or icons) */}
-            <button className="w-10 h-10 bg-blue-500 rounded-full flex justify-center items-center text-white font-semibold">
-              F
-            </button>
-            <button className="w-10 h-10 bg-blue-400 rounded-full flex justify-center items-center text-white font-semibold">
-              T
-            </button>
-            <button className="w-10 h-10 bg-red-500 rounded-full flex justify-center items-center text-white font-semibold">
-              G
-            </button>
-            <button className="w-10 h-10 bg-black rounded-full flex justify-center items-center text-white font-semibold">
-              A
-            </button>
-          </div>
 
           {/* Already have an account */}
-          <p className="text-center text-sm">
+          <p className="text-center mt-4 text-sm">
             I have Not a account{" "}
             <NavLink to={"/sign-up"} className="text-indigo-500 underline">
               Sign up

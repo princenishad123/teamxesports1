@@ -78,6 +78,13 @@ export const api = createApi({
             query:()=> "/user/get-withdrawals"
         }),
 
+        getUserWithdrewHistory: builder.query({
+             query:()=> `/user/my-withdraw`
+        }),
+        getUserDipositesHistory: builder.query({
+            query:()=> `/user/my-deposites`
+        }),
+
 
        
         
@@ -85,4 +92,4 @@ export const api = createApi({
 });
 
 
-export const {useGetUserAccountQuery,useRegisterTeamMutation,useGetContestsQuery,useGetContestsByIdQuery , useGetMyContestsQuery,useGetLiveTournamentsQuery,useGetCompletedTournamentsQuery,useGetAllUsersQuery,useGetWithdrawalsQuery } = api
+export const {useGetUserAccountQuery,useRegisterTeamMutation,useGetContestsQuery,useGetContestsByIdQuery , useGetMyContestsQuery,useGetLiveTournamentsQuery,useGetCompletedTournamentsQuery,useGetAllUsersQuery,useGetWithdrawalsQuery, useGetUserDipositesHistoryQuery,useGetUserWithdrewHistoryQuery } = api

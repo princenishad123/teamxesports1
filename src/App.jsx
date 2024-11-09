@@ -32,6 +32,9 @@ const CompletedTournaments = lazy(() =>
 );
 
 import AdminProtectedToute from "./ProtectedRoutes/AdminProtectedToute";
+const MyWithdraw = lazy(() => import("./Pages/MyWithdraw"));
+const MyDeposites = lazy(() => import("./Pages/MyDeposites"));
+const ForgetPassword = lazy(() => import("./Pages/ForgetPassword"));
 
 const AdminDashboard = lazy(() => import("./Pages/AdminDashboard"));
 const HomeAdmin = lazy(() => import("./Pages/AdminPages/HomeAdmin"));
@@ -96,9 +99,18 @@ const App = () => {
             path="/registration"
             element={<UserProtected Component={RegisterTeam} />}
           />
+          <Route
+            path="/transactions/withdraw"
+            element={<UserProtected Component={MyWithdraw} />}
+          />
+          <Route
+            path="/transactions/deposites"
+            element={<UserProtected Component={MyDeposites} />}
+          />
 
           <Route path="/start" element={<StartPage />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
         </Routes>
       </Suspense>

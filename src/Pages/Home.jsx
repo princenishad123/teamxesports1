@@ -10,7 +10,11 @@ const Home = () => {
     <>
       <div className="max-w-xl px-2 mx-auto">
         {isLoading ? (
-          <SeleconLoader />
+          <>
+            <SeleconLoader />
+            <SeleconLoader />
+            <SeleconLoader />
+          </>
         ) : (
           data?.tournaments?.map((e) => (
             <MatchCard
@@ -21,7 +25,7 @@ const Home = () => {
               time={"09:30 PM"}
               mode={e.map}
               pricePool={e.prizePool}
-              winners={3}
+              winners={e.winners}
               type={e.type}
               seat={e.maxTeams}
               bookedSeat={e.teams.length}

@@ -46,7 +46,11 @@ const ViewContest = () => {
   return (
     <>
       {isLoading ? (
-        <SeleconLoader />
+        <>
+          <SeleconLoader />
+          <SeleconLoader />
+          <SeleconLoader />
+        </>
       ) : (
         <div className="max-w-md mx-auto">
           {/* card view contest */}

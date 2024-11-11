@@ -48,8 +48,6 @@ const ViewContest = () => {
       {isLoading ? (
         <>
           <SeleconLoader />
-          <SeleconLoader />
-          <SeleconLoader />
         </>
       ) : (
         <div className="max-w-md mx-auto">

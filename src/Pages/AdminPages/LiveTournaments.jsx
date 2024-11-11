@@ -29,7 +29,7 @@ const LiveTournaments = () => {
           ))}
         </div>
       ) : (
-        <h2 className="text-xl font-medium text-center">Nothing here..</h2>
+        <h2 className="text-xl font-medium text-center">Nothing here...</h2>
       )}
     </div>
   );

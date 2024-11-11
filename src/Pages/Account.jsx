@@ -3,7 +3,7 @@ import Qonquere from "../assets/qonquere.webp";
 import Userimage from "../assets/userImage.webp";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../Redux/Auth/authSlice";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useGetUserAccountQuery } from "../Redux/querySlice";
 import { addMoney } from "../Redux/Auth/paymentSlice";
 import Loader from "../Component/Loader";
@@ -76,6 +76,7 @@ const Account = () => {
               >
                 <h2 className="text-md font-medium">Add Money</h2>
               </button>
+
               <button
                 onClick={() => navigate("/withdraw")}
                 className="w-1/2 h-auto p-3 rounded-md shadow-md bg-green-600 text-white"

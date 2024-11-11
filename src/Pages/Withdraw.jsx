@@ -37,6 +37,7 @@ const Withdraw = () => {
     <div className="w-full p-4">
       <div>
         <h2 className="my-4 text-xl font-medium">Withdraw your money 😊</h2>
+
         <form onSubmit={handleWithdraw}>
           <input
             type="number"

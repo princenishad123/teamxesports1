@@ -26,6 +26,7 @@ const Home = () => {
               bookedSeat={e.teams.length}
               fee={e.entryFee}
               round={1}
+              boats={e.boats}
             />
           ))
         )}

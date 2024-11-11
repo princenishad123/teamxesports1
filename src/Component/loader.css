@@ -38,3 +38,25 @@
         transform: rotate(360deg);
     }
 }
+
+.animationSlider{
+    width: 150px;
+    height: 100%;
+    background-color: #d2121200;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    z-index: 1;
+   box-shadow: 0px 0px 25px 50px white;
+   animation: slider .8s linear infinite;
+
+}
+@keyframes slider {
+    0%{
+     left: 0;
+    }
+    100%{
+        left: 100%;
+    }
+}
+

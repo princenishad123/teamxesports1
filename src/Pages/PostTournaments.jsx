@@ -34,7 +34,7 @@ const PostTournaments = () => {
                 type="text"
                 name="name"
                 className="w-full p-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Input Your First Name"
+                placeholder="name"
               />
             </div>
             <div>
@@ -72,7 +72,7 @@ const PostTournaments = () => {
                 type="number"
                 name="maxTeams"
                 className="w-full p-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Input Your First Name"
+                placeholder="Teams"
               />
             </div>
             <div>
@@ -127,17 +127,27 @@ const PostTournaments = () => {
                 <option value="Solo">Solo</option>
               </select>
             </div>
+            <div>
+              <label className="block mb-2 text-sm font-medium">Winners*</label>
+              <input
+                type="number"
+                name="winners"
+                className="w-full p-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Input Your First Name"
+              />
+            </div>
           </div>
 
           <div className="mb-4">
             <label className="block mb-2 text-sm font-medium">
               Description*
             </label>
-            <textarea
-              name="description"
+            <input
+              type="text"
+              name="image"
               className="w-full p-2 border h-32 rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Input Your Phone Number"
-            ></textarea>
+              placeholder="Enter Winner Image URL"
+            />
           </div>
 
           <button className="w-full bg-blue-500 text-white py-2 rounded-lg mt-4 hover:bg-blue-600">

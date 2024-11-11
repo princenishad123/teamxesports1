@@ -19,7 +19,7 @@ const ViewContestComp = ({
   const [percentage, setPercentage] = useState();
 
   useEffect(() => {
-    setPercentage(Math.round((bookedSeat / seat) * 100));
+    setPercentage(Math.round((fee == 0 ? seat : bookedSeat / seat) * 100));
     if (!seat) setPercentage(0);
   }, [seat]);
   return (
@@ -68,14 +68,14 @@ const ViewContestComp = ({
       {/* slotes */}
 
       <div className="w-full my-2 flex items-center justify-between px-2">
-        <div className="w-[85%] max-sm:w-[70%] h-1 bg-red-100 rounded-md">
+        <div className="w-[85%] max-sm:w-[70%] overflow-hidden h-1 bg-red-100 rounded-md">
           <div
             style={{ width: `${percentage}%`, height: "100%" }}
             className="bg-red-500 rounded-md"
           ></div>
         </div>
         <span className="text-[14px] font-semibold mt-[-4px]">
-          {bookedSeat}/{seat} Slots
+          {fee == 0 ? seat : bookedSeat}/{seat} Slots
         </span>
       </div>
 

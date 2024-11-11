@@ -11,14 +11,14 @@ const MatchCard = ({
   winners,
   type,
   seat,
-  bookedSeat,
   fee,
   round,
   background,
   boats,
+  bookedSeat,
 }) => {
   const [percentage, setPercentage] = useState(
-    Math.round((bookedSeat / seat) * 100)
+    Math.round((fee == 0 ? seat : bookedSeat / seat) * 100)
   );
 
   const navigate = useNavigate();
@@ -76,14 +76,14 @@ const MatchCard = ({
       {/* slotes */}
 
       <div className="w-full my-2 flex items-center justify-between px-2">
-        <div className="w-[85%] max-sm:w-[70%] h-1 bg-red-100 rounded-md">
+        <div className="w-[85%] overflow-hidden max-sm:w-[70%] h-1 bg-red-100 rounded-md">
           <div
             style={{ width: `${percentage}%`, height: "100%" }}
             className="bg-red-500 rounded-md"
           ></div>
         </div>
         <span className="text-[14px] font-semibold mt-[-4px]">
-          {bookedSeat}/{seat} Slots
+          {fee == 0 ? seat : bookedSeat}/{seat} Slots
         </span>
       </div>
 

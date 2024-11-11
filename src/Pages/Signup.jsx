@@ -63,7 +63,7 @@ const Signup = () => {
             <input
               type="text"
               name="phoneNumber"
-              placeholder="Enter Email"
+              placeholder="Enter Phone Number"
               className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
             />
 

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import MatchCard from "../Component/MatchCard";
 import { useGetContestsQuery } from "../Redux/querySlice";
 import Loader from "../Component/Loader";
+import SeleconLoader from "../Component/SeleconLoader";
 const Home = () => {
   let { data, isLoading, isError } = useGetContestsQuery();
 
@@ -9,7 +10,7 @@ const Home = () => {
     <>
       <div className="max-w-xl px-2 mx-auto">
         {isLoading ? (
-          <Loader />
+          <SeleconLoader />
         ) : (
           data?.tournaments?.map((e) => (
             <MatchCard

@@ -9,6 +9,7 @@ import { useRegisterTeamMutation } from "../Redux/querySlice";
 import ButtonSpinner from "../Component/ButtonSpinner";
 import Loader from "../Component/Loader";
 import { useParams } from "react-router-dom";
+import SeleconLoader from "../Component/SeleconLoader";
 const ViewContest = () => {
   const [showButton, setShowButton] = useState(false);
   const { id } = useParams();
@@ -45,7 +46,7 @@ const ViewContest = () => {
   return (
     <>
       {isLoading ? (
-        <Loader />
+        <SeleconLoader />
       ) : (
         <div className="max-w-md mx-auto">
           {/* card view contest */}
@@ -55,7 +56,7 @@ const ViewContest = () => {
             time={contest?.endDate}
             mode={contest?.map}
             pricePool={contest?.prizePool}
-            winners={15}
+            winners={contest?.winners}
             type={"Squad"}
             seat={contest?.maxTeams}
             bookedSeat={contest.teams?.length}
@@ -63,22 +64,26 @@ const ViewContest = () => {
             round={1}
             paymentHandler={paymentHandler}
             id={id}
+            winner={contest?.image}
           />
 
-          <button
-            onClick={paymentHandler}
-            className="py-3 my-2 w-full mx-auto font-medium px-8 text-sm rounded-md text-white bg-green-700"
-          >
-            {button ? <ButtonSpinner /> : `₹ ${contest?.entryFee}`}
-          </button>
+          {contest?.entryFee == 0 ? (
+            <button className="py-3 my-2 w-full mx-auto font-medium px-8 text-sm rounded-md text-white bg-green-700">
+              Contest Fulled
+            </button>
+          ) : (
+            <button
+              onClick={paymentHandler}
+              className="py-3 my-2 w-full mx-auto font-medium px-8 text-sm rounded-md text-white bg-green-700"
+            >
+              {button ? <ButtonSpinner /> : `₹ ${contest?.entryFee}`}
+            </button>
+          )}
 
           {/* Total teams joinded and prize Pool */}
           <div>
             <div className="w-full">
-              <img
-                src="https://i.postimg.cc/T3xF9t3X/Blue-Modern-Esport-Tournament-Poster-1.webp"
-                alt=""
-              />
+              <img src={contest?.image} alt="" />
             </div>
 
             {/* show winnigs and leaderboard */}

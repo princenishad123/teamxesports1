@@ -3,6 +3,7 @@ import CompletedCard from "../Component/CompletedCard";
 import { useGetMyContestsQuery } from "../Redux/querySlice";
 import axios from "axios";
 import Loader from "../Component/Loader";
+import SeleconLoader from "../Component/SeleconLoader";
 
 const MyContest = () => {
   const [activeButton, setActiveButton] = useState(3);
@@ -42,7 +43,7 @@ const MyContest = () => {
       </div>
       <h2 className="text-md font-semibold my-4 px-2">My Contests</h2>
       {isLoading ? (
-        <Loader />
+        <SeleconLoader />
       ) : (
         data?.myTournaments.map((e) => (
           <CompletedCard

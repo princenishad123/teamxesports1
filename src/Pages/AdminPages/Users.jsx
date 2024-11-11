@@ -169,7 +169,7 @@ const Users = () => {
                   <td className="px-4 py-3 border-b">{product._id}</td>
                   <td className="px-4 py-3 border-b">{product.email}</td>
                   <td className="px-4 py-3 border-b">{product.bgmiId}</td>
-                  <td className="px-4 py-3 border-b">{product.number}</td>
+                  <td className="px-4 py-3 border-b">{product.phoneNumber}</td>
                   <td className="px-4 py-3 border-b">{product.wallet}</td>
                   <td className="px-4 py-3 border-b">
                     {product.tournaments.length}

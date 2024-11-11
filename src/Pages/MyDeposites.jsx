@@ -9,7 +9,6 @@ import Loader from "../Component/Loader";
 
 const MyDeposites = () => {
   const { data, isLoading, isError } = useGetUserDipositesHistoryQuery();
-  console.log(data?.data);
 
   return (
     <div className="max-w-lg mx-auto bg-slate-50 p-3">
@@ -23,8 +22,8 @@ const MyDeposites = () => {
           <TransactionHistory
             key={e._id}
             status={e.status}
-            amount={e.amount}
-            orderId={"dafd"}
+            amount={e.balance}
+            orderId={e.orderNumber}
             date={e.createdAt}
             userId={e._id}
           />

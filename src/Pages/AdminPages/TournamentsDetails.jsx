@@ -16,6 +16,7 @@ const TournamentsDetails = () => {
       .then((res) => {
         setTrDetails([res.data.tournaments]);
         setUsers(res.data.users);
+        console.log(res.data.users);
       })
       .catch((err) => {
         console.log(err);
@@ -44,6 +45,8 @@ const TournamentsDetails = () => {
       });
   };
 
+  // console.log(trdetails);
+
   return (
     <div className="p-6 bg-slate-100">
       <div className="bg-white rounded-md">
@@ -56,7 +59,7 @@ const TournamentsDetails = () => {
             time={e.time}
             mode={e.map}
             pricePool={e.prizePool}
-            winners={20}
+            winners={2}
             type={e.type}
             seat={e.maxTeams}
             bookedSeat={e.teams.length}

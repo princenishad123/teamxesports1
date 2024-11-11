@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-
+import ButtonSpinner from "../Component/ButtonSpinner";
 const Withdraw = () => {
   const [amount, setAmount] = useState("");
   const [upi, setUpi] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleWithdraw = (e) => {
     e.preventDefault();
@@ -17,6 +18,8 @@ const Withdraw = () => {
       return toast.error("Minimun 50 Rs withdrawals");
     }
 
+    setIsLoading(true);
+
     axios
       .post("/user/withdraw", {
         amount,
@@ -24,9 +27,11 @@ const Withdraw = () => {
       })
       .then((res) => {
         toast.success(res.data.message);
-        console.log(res);
+        setIsLoading(false);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => {
+        setIsLoading(false);
+      });
   };
   return (
     <div className="w-full p-4">
@@ -50,7 +55,7 @@ const Withdraw = () => {
             className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
           />
           <button className="w-full bg-indigo-700 text-white p-3 rounded-lg font-semibold hover:bg-indigo-600">
-            Withdraw
+            {isLoading ? <ButtonSpinner /> : " Withdraw"}
           </button>
         </form>
       </div>

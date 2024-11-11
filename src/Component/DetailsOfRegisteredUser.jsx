@@ -1,5 +1,8 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import ButtonSpinner from "../Component/ButtonSpinner";
+import toast from "react-hot-toast";
 const DetailsOfRegisteredUser = ({
   image = "https://i.postimg.cc/PxdqnWyG/bf67ca742c1a648df202ab9c1e2a2128-icon.webp",
   name = " BGMI E-sports",
@@ -22,6 +25,7 @@ const DetailsOfRegisteredUser = ({
 
   const navigate = useNavigate();
   const [markButton, setMarkButton] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
 
   useEffect(() => {
     if (!seat) setPercentage(0);
@@ -29,6 +33,29 @@ const DetailsOfRegisteredUser = ({
 
   const updateTournaments = () => {
     setMarkButton(!markButton);
+
+    axios
+      .patch("/matches/update-tournament", { id: id, isCompleted: markButton })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const deleteTournaments = () => {
+    setIsloading(true);
+    axios
+      .delete("/matches/delete-tournament", { data: { id: id } })
+      .then((res) => {
+        setIsloading(false);
+
+        toast.success(res.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsloading(false);
+      });
   };
 
   return (
@@ -119,8 +146,11 @@ const DetailsOfRegisteredUser = ({
             <button className="px-4 py-1 bg-orange-500 text-sm text-white rounded-full">
               Clone
             </button>
-            <button className="px-4 py-1 bg-red-500 text-sm text-white rounded-full">
-              Delete
+            <button
+              onClick={deleteTournaments}
+              className="px-4 py-1 bg-red-500 text-sm text-white rounded-full"
+            >
+              {isLoading ? <ButtonSpinner /> : "Delete"}
             </button>
           </div>
         </div>

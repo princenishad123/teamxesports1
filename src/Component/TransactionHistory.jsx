@@ -9,13 +9,14 @@ const TransactionHistory = ({ status, date, orderId, userId, amount }) => {
       <hr />
       <ul className="px-2">
         <li className="w-full text-sm py-1 border-b font-medium text-gray-500 flex justify-between items-center">
-          <span>user Id</span>
-          <span>{userId}</span>
+          <span>Amount</span>
+          <span>₹ {amount}</span>
         </li>
         <li className="w-full text-sm py-1 border-b font-medium text-gray-500 flex justify-between items-center">
-          <span>Amount</span>
-          <span>{amount}</span>
+          <span>Transaction Id</span>
+          <span>{userId}</span>
         </li>
+
         <li className="w-full  border-b py-1 text-sm font-medium text-gray-500 flex justify-between items-center">
           <span>Order Id</span>
           <span>{orderId}</span>

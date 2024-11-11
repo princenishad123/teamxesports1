@@ -60,6 +60,12 @@ const Signup = () => {
               placeholder="Enter Email"
               className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
             />
+            <input
+              type="text"
+              name="phoneNumber"
+              placeholder="Enter Email"
+              className="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
+            />
 
             {/* Password Input */}
             <div className="border mb-4 border-gray-300 rounded-lg overflow-hidden flex justify-between items-center">
